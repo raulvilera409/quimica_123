@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa - Química Orgânica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+        .header, .school-header {
+            text-align: center;
+        }
+        .school-header h2 {
+            margin: 0;
+            color: #FFD700;
+        }
+        .header h1 {
+            color: #ffffff;
+        }
+        .cabecalho {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        select, input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .submit-button {
+            margin: 30px auto;
+            display: block;
+            width: 200px;
+            background-color: #4CAF50;
+            cursor: pointer;
+        }
+        .feedback-container {
+            display: none;
+            margin-top: 20px;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="school-header">
+            <h2>E.E. MARIA LEONI</h2>
+        </div>
+        <div class="header">
+            <h1>Atividade Avaliativa - Química Orgânica</h1>
+        </div>
+
+        <form id="formulario">
+            <div class="cabecalho">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <select id="nome" name="nome" required>
+                        <option value="" disabled selected>Selecione seu nome</option>
+                        <!-- Lista Completa de Nomes -->
+                        <option>ANA BEATRIZ DE BRITTO CERQUEIRA</option>
+                        <option>BRUNA FREITAS DA SILVA</option>
+                        <option>CAIO EDUARDO SILVA DE MORAES</option>
+                        <option>CAUE CAPDEVILA KLEIN</option>
+                        <option>DAFNE COSTA SANTANA</option>
+                        <option>DANIEL GONCALVES MOLINA</option>
+                        <option>ERICK THOMAS CONSOLO VALOSSI</option>
+                        <option>GABRIEL FONSECA DA SILVA</option>
+                        <option>GIOVANNA DOS SANTOS PONTES</option>
+                        <option>GIOVANNA REGINA PEREIRA MACHADO</option>
+                        <option>GUSTAVO HENRIQUE PEREIRA</option>
+                        <option>ISABELA DE ARAUJO ANTONIO</option>
+                        <option>ISABELLEY DE PAULA NASCIMENTO</option>
+                        <option>JOAO VICTOR LIMA DE SOUSA</option>
+                        <option>JONAS ELIAQUIM CARVALHO BIELLA</option>
+                        <option>JULIA CRISTINI ASSUNCAO DA SILVA</option>
+                        <option>KAUAN COSTA DOS SANTOS</option>
+                        <option>LETICIA BORGES DE CASTRO</option>
+                        <option>MARCELA ALCANTARA DA SILVA</option>
+                        <option>MATHEUS ESTEVAM AGUIAR</option>
+                        <option>MICHAEL PETTER SOARES DE SOUSA</option>
+                        <option>MIGUEL VENANCIO DE BRITO</option>
+                        <option>MIRIA NOBERTO DOS SANTOS</option>
+                        <option>NICOLAS EMANUEL DE OLIVEIRA VILAR</option>
+                        <option>PEDRO HENRIQUE BESSA DOS SANTOS</option>
+                        <option>YAGO PEIXOTO RODRIGUES ORTEGA</option>
+                        <option>LEANDRO HIROYUKI ROCHA TAGUTI</option>
+                        <option>WESDLEY SENA PAULO JUNIOR</option>
+                        <option>GUILHERME LUCAS FONTOLAN DOS SANTOS</option>
+                        <option>JOAO VICTOR PAULINO DOS SANTOS</option>
+                        <option>ANDRE SILVA BRAGA GONCALVES</option>
+                        <option>QUEZIA ZAINE ALVES DA SILVA RAMOS</option>
+                        <option>FLAVIA PALMA SOUZA</option>
+                        <option>VITOR RODRIGUES DOS SANTOS ALVES</option>
+                        <option>MARIA EDUARDA RODRIGUES VILLELA DA SILVA</option>
+                        <option>YURI SILVA FIRMINO</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="serie">Série:</label>
+                    <select id="serie" name="serie" required>
+                        <option value="" disabled selected>Selecione a série</option>
+                        <option>2ªSÉRIE A</option>
+                        <option>2ªSÉRIE B</option>
+                        <option>2ªSÉRIE C</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">Enviar Respostas</button>
+        </form>
+
+        <div id="feedback-container" class="feedback-container">
+            <h2>Feedback da Autocorreção</h2>
+            <div id="feedback-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzTcyER-OsDyE0rupE_wW1KHDh9ypdpvqZOvW84TsC2xWWTwzrmDOe10lcNMbzoZA/exec';
+
+        document.getElementById('formulario').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    document.getElementById('feedback-content').textContent = 'Respostas enviadas com sucesso!';
+                    document.getElementById('feedback-container').style.display = 'block';
+                    event.target.reset();
+                } else {
+                    throw new Error('Erro ao enviar respostas');
+                }
+            } catch (error) {
+                alert(`Erro: ${error.message}`);
+            }
+        });
+    </script>
+
+</body>
+</html>
