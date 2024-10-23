@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade Avaliativa - Química Orgânica</title>
     <style>
+        /* Estilos CSS personalizados */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212; /* Fundo geral escuro */
+            background-color: #121212;
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -16,7 +17,7 @@
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #1e1e1e; /* Fundo do contêiner principal */
+            background-color: #1e1e1e;
             border-radius: 10px;
         }
         .header, .school-header {
@@ -35,34 +36,30 @@
             justify-content: space-between;
             gap: 15px;
         }
-        /* Estilização dos campos de seleção, data e textarea */
         select, input[type="date"], textarea {
             width: 100%;
-            padding: 8px 10px; /* Reduzido o padding para tornar mais compacto */
+            padding: 8px 10px;
             border-radius: 5px;
-            border: 1px solid #ccc; /* Borda cinza clara */
-            background-color: #ffffff; /* Fundo branco */
-            color: #000000; /* Texto preto */
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            color: #000000;
             box-sizing: border-box;
-            font-size: 14px; /* Reduzido o tamanho da fonte */
+            font-size: 14px;
         }
-        /* Estilização específica para o select de nomes */
-        #nome {
-            appearance: none; /* Remove a seta padrão */
+        #nome, #serie {
+            appearance: none;
             background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7"><path fill="%23000000" d="M0 0l5 5 5-5H0z"/></svg>');
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 10px 7px;
-            padding-right: 30px; /* Espaço para a seta personalizada */
+            padding-right: 30px;
             cursor: pointer;
         }
-        /* Estilização para manter a aparência do select */
-        select:focus {
+        select:focus, input[type="date"]:focus, textarea:focus {
             outline: none;
             border-color: #4CAF50;
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
-        /* Estilização do botão de envio */
         .submit-button {
             margin: 30px auto;
             display: block;
@@ -74,46 +71,41 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 5px #999; /* Efeito 3D */
+            box-shadow: 0 5px #999;
             transition: all 0.2s;
         }
         .submit-button:active {
-            box-shadow: 0 2px #666; /* Efeito de depressão */
-            transform: translateY(4px); /* Desloca para baixo */
+            box-shadow: 0 2px #666;
+            transform: translateY(4px);
         }
         .feedback-container {
             display: none;
             margin-top: 20px;
-            background-color: #fff;
-            color: #333;
+            background-color: #ffffff;
+            color: #333333;
             padding: 20px;
             border-radius: 8px;
         }
-
-        /* Estilização das questões */
         .questoes-container > div {
-            margin-bottom: 30px; /* Espaçamento de 30px entre cada questão */
+            margin-bottom: 30px;
         }
-
         .questoes-container label {
             display: block;
-            line-height: 1.6; /* Aumento do espaçamento entre linhas */
-            background-color: #2f4f4f; /* Fundo cinza escuro */
+            line-height: 1.6;
+            background-color: #2f4f4f;
             padding: 10px;
             border-radius: 5px;
-            color: #ffffff; /* Texto branco */
-            margin-bottom: 10px; /* Espaçamento entre o enunciado e a textarea */
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Efeito de borda 3D */
+            color: #ffffff;
+            margin-bottom: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
         }
-
-        /* Ajuste nas textareas para melhor contraste */
         .questoes-container textarea {
-            background-color: #ffffff; /* Fundo branco conforme solicitado */
-            color: #000000; /* Texto preto */
-            border: 1px solid #ccc; /* Borda */
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #ccc;
+            resize: vertical;
+            min-height: 100px;
         }
-
-        /* Responsividade para telas menores */
         @media (max-width: 768px) {
             .cabecalho {
                 flex-direction: column;
@@ -277,6 +269,7 @@
                         <option>VITORIA CRISTINA PEREIRA</option>
                         <option>ANA LIVIA DE LIMA ABEL</option>
                         <option>LUCAS SALES CARNEIRO</option>
+                        <!-- Adicione mais nomes aqui, se necessário -->
                     </select>
                 </div>
 
@@ -287,7 +280,7 @@
                         <option>2ªSÉRIE A</option>
                         <option>2ªSÉRIE B</option>
                         <option>2ªSÉRIE C</option>
-                        <option>2ºTÉCNICO</option> <!-- Nova opção adicionada -->
+                        <option>2ºTÉCNICO</option>
                     </select>
                 </div>
 
@@ -298,54 +291,94 @@
             </div>
 
             <div class="questoes-container">
+                <!-- Questão 1 -->
                 <div>
-                    <label for="resposta1">1. Imagine que você vai ao supermercado e encontra produtos como alimentos, produtos de limpeza e cosméticos. Muitos deles são feitos com compostos orgânicos. Com base no que você sabe, como a química orgânica está presente nesses produtos? De que maneira isso influencia nossas escolhas de consumo no dia a dia?</label>
-                    <textarea id="resposta1" name="resposta1" required></textarea>
+                    <label for="resposta1">1. Microplásticos e Saúde Humana</label>
+                    <textarea id="resposta1" name="resposta1" required>
+Contexto: Microplásticos foram encontrados em alimentos e fontes de água potável, trazendo preocupações sobre seus efeitos na saúde.
+Pergunta: Como a ingestão de microplásticos pode afetar a saúde humana e o meio ambiente? Proponha estratégias baseadas em processos químicos para mitigar esse problema.
+                    </textarea>
                 </div>
 
+                <!-- Questão 2 -->
                 <div>
-                    <label for="resposta2">2. Em diversas culturas, alimentos fermentados, como pães e iogurtes, fazem parte da dieta tradicional. Pense no impacto social e econômico desses produtos na vida moderna. Por que você acredita que a fermentação continua sendo importante hoje, mesmo com tantas tecnologias industriais disponíveis?</label>
-                    <textarea id="resposta2" name="resposta2" required></textarea>
+                    <label for="resposta2">2. Mudanças Climáticas e Gases de Efeito Estufa</label>
+                    <textarea id="resposta2" name="resposta2" required>
+Contexto: As emissões de gases de efeito estufa são diretamente ligadas ao aquecimento global e às mudanças climáticas.
+Questão: Analisar como as respostas químicas responsáveis ​​pela produção de dióxido de carbono e metano influenciam o efeito estufa. Quais soluções químicas podem ser inovadoras para reduzir essas emissões?
+                    </textarea>
                 </div>
 
+                <!-- Questão 3 -->
                 <div>
-                    <label for="resposta3">3. Com as mudanças climáticas, há uma busca por substituir combustíveis fósseis por biocombustíveis. Analise os benefícios e desafios de adotar biocombustíveis em larga escala. O que poderia incentivar ou dificultar essa mudança no Brasil e no mundo?</label>
-                    <textarea id="resposta3" name="resposta3" required></textarea>
+                    <label for="resposta3">3. Uso de Fertilizantes na Agricultura e Impacto Ambiental</label>
+                    <textarea id="resposta3" name="resposta3" required>
+Contexto: O uso excessivo de fertilizantes nitrogenados tem causado eutrofização em corpos d'água, impactando os ecossistemas.
+Questão: Como a química pode ser utilizada para desenvolver fertilizantes mais eficientes e menos tóxicos? Avalie o impacto do uso desses fertilizantes na produção agrícola e no meio ambiente.
+                    </textarea>
                 </div>
 
+                <!-- Questão 4 -->
                 <div>
-                    <label for="resposta4">4. Substâncias orgânicas, como a ocitocina, influenciam nosso humor e relacionamentos. Pense em como momentos simples, como abraçar alguém ou conviver com amigos, podem ser explicados também pela química. Como você acredita que o conhecimento sobre esses processos pode ser útil para a saúde emocional das pessoas?</label>
-                    <textarea id="resposta4" name="resposta4" required></textarea>
+                    <label for="resposta4">4. Poluição Atmosférica e Saúde Pública</label>
+                    <textarea id="resposta4" name="resposta4" required>
+Contexto: Compostos orgânicos voláteis (COVs) liberados por industriais e veículos têm contribuição para a poluição do ar.
+Questão: Analisar como a exposição prolongada a COVs pode afetar a saúde pública. Proponha alternativas químicas para a redução dessas substâncias poluentes na atmosfera.
+                    </textarea>
                 </div>
 
+                <!-- Questão 5 -->
                 <div>
-                    <label for="resposta5">5. Muitos tecidos usados na moda, como o poliéster, são produzidos a partir de compostos orgânicos derivados do petróleo. Sabendo que esses materiais demoram anos para se decompor, como você avalia a busca por materiais sustentáveis na moda? O que mais poderia ser feito para reduzir o impacto ambiental da indústria têxtil?</label>
-                    <textarea id="resposta5" name="resposta5" required></textarea>
+                    <label for="resposta5">5. Produção de Energia: Hidrogênio Verde</label>
+                    <textarea id="resposta5" name="resposta5" required>
+Contexto: O hidrogênio verde é uma promessa para a transição energética, mas há desafios em sua produção e uso.
+Questão: Explique como a química está envolvida na produção de hidrogênio verde. Analisar os principais desafios e as vantagens dessa tecnologia em comparação com os combustíveis fósseis.
+                    </textarea>
                 </div>
 
+                <!-- Questão 6 -->
                 <div>
-                    <label for="resposta6">6. A química é usada na fabricação de eletrônicos, como celulares e laptops, mas também causa resíduos prejudiciais ao meio ambiente. Como você avalia o desafio de equilibrar o avanço tecnológico com a preservação ambiental? O que a sociedade e as indústrias poderiam fazer para diminuir o impacto dos resíduos eletrônicos?</label>
-                    <textarea id="resposta6" name="resposta6" required></textarea>
+                    <label for="resposta6">6. Impacto dos Aditivos Alimentares na Saúde</label>
+                    <textarea id="resposta6" name="resposta6" required>
+Contexto: A indústria alimentícia utiliza diversos aditivos para preservar e dar sabor aos alimentos, mas seu uso excessivo levanta preocupações.
+Questão: Como a química é utilizada para desenvolver e avaliar a segurança dos aditivos alimentares? Analisar os impactos potenciais desses compostos na saúde a longo prazo.
+                    </textarea>
                 </div>
 
+                <!-- Questão 7 -->
                 <div>
-                    <label for="resposta7">7. A ciência foi fundamental na criação das vacinas contra a COVID-19, mas a desinformação gerou hesitação na vacinação. A confiança pode ser construída com campanhas educativas, maior transparência e envolvimento da comunidade científica para aproximar as pessoas da ciência e dos benefícios da vacinação.</label>
-                    <textarea id="resposta7" name="resposta7" required></textarea>
+                    <label for="resposta7">7. Bioplásticos e Sustentabilidade</label>
+                    <textarea id="resposta7" name="resposta7" required>
+Contexto: Os bioplásticos são uma alternativa aos plásticos convencionais, mas sua produção e descarte ainda apresentam desafios.
+Questão: Avaliar as diferenças químicas entre bioplásticos e plásticos tradicionais. Quais são os benefícios e limitações ambientais desses novos materiais?
+                    </textarea>
                 </div>
 
+                <!-- Questão 8 -->
                 <div>
-                    <label for="resposta8">8. As reações químicas nos alimentos explicam mudanças de sabor, cor e textura, como o escurecimento do pão (reação de Maillard). Compreender esses processos ajuda a melhorar a qualidade da alimentação e permite o desenvolvimento de novos produtos, como alimentos mais saudáveis e funcionais.</label>
-                    <textarea id="resposta8" name="resposta8" required></textarea>
+                    <label for="resposta8">8. Medicamentos e Poluentes Emergentes</label>
+                    <textarea id="resposta8" name="resposta8" required>
+Contexto: Resíduos de medicamentos descartados incorretamente foram encontrados em corpos d'água, ameaçando a biodiversidade.
+Pergunta: Como os processos químicos podem ser usados ​​para remover resíduos farmacêuticos de águas residuais? Analisar o impacto dessas substâncias poluentes na saúde ambiental e sugerir soluções viáveis.
+                    </textarea>
                 </div>
 
+                <!-- Questão 9 -->
                 <div>
-                    <label for="resposta9">9. A preferência por produtos naturais está ligada à percepção de que são mais seguros e sustentáveis. No entanto, nem todos os produtos naturais são necessariamente melhores ou livres de riscos. A escolha entre produtos naturais e sintéticos deve considerar sua eficácia, segurança e impacto ambiental.</label>
-                    <textarea id="resposta9" name="resposta9" required></textarea>
+                    <label for="resposta9">9. Circular de Transformação Química e Economia</label>
+                    <textarea id="resposta9" name="resposta9" required>
+Contexto: A economia circular propõe reduzir resíduos, reutilizar recursos e reciclar materiais, usando princípios químicos.
+Questão: Explique como as transformações químicas estão envolvidas na reciclagem de polímeros. Avalie o papel da química na transição para uma economia circular eficiente.
+                    </textarea>
                 </div>
 
+                <!-- Questão 10 -->
                 <div>
-                    <label for="resposta10">10. A química pode desenvolver alternativas mais sustentáveis, como plásticos biodegradáveis e produtos reutilizáveis. Como consumidores, podemos adotar práticas como a redução do uso de plástico, a escolha por produtos reciclados e o apoio a empresas que investem em inovação sustentável.</label>
-                    <textarea id="resposta10" name="resposta10" required></textarea>
+                    <label for="resposta10">10. Nanomateriais e Desafios Éticos</label>
+                    <textarea id="resposta10" name="resposta10" required>
+Contexto: A nanotecnologia permite a criação de materiais inovadores, mas também levanta questões éticas e ambientais.
+Questão: Analisar os benefícios e riscos do uso de nanomateriais em produtos de consumo. Como a química pode garantir que esses materiais sejam seguros para a saúde e o meio ambiente?
+                    </textarea>
                 </div>
             </div>
 
@@ -359,46 +392,31 @@
     </div>
 
     <script>
-        const gabarito = [
-            "Os microplásticos podem acumular-se nos organismos...",
-            "A produção de CO₂ e CH₄ provém de processos...",
-            "Fertilizantes orgânicos minimizam a eutrofização...",
-            "COVs contribuem para doenças respiratórias...",
-            "Hidrogênio verde é produzido por eletrólise...",
-            "A química permite sintetizar aditivos alimentares...",
-            "Bioplásticos são fabricados a partir de amido...",
-            "Resíduos de medicamentos poluem águas...",
-            "A reciclagem química decompõe polímeros...",
-            "Nanomateriais oferecem vantagens, mas riscos..."
-        ];
-
+        // Função para lidar com a submissão do formulário
         document.getElementById('formulario').addEventListener('submit', async (event) => {
             event.preventDefault();
-            const respostas = [];
-            const feedbacks = [];
 
+            // Extrair respostas
+            const respostas = [];
             for (let i = 1; i <= 10; i++) {
                 const resposta = document.getElementById(`resposta${i}`).value.trim();
                 respostas.push(resposta);
-                const correto = gabarito[i - 1].toLowerCase().includes(resposta.toLowerCase());
-                feedbacks.push(correto ? 'Correto' : 'Incorreto');
             }
 
-            // Cria um objeto com os dados a serem enviados
+            // Criar objeto de dados
             const data = {
                 nome: document.getElementById('nome').value,
                 serie: document.getElementById('serie').value,
                 data: document.getElementById('data').value,
             };
 
-            // Adiciona as respostas e feedbacks ao objeto
+            // Adicionar respostas ao objeto de dados
             for (let i = 1; i <= 10; i++) {
                 data[`resposta${i}`] = respostas[i - 1];
-                data[`feedback${i}`] = feedbacks[i - 1];
             }
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbx0VIGN8CGX1fxA9pomL4PdlasExBq-W5K-ZwrKw-jj1ID1ykcReEgtED4V9LwvW6U/exec', { // Substitua pela URL do Web App
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzs8P9aM4raknRxsuz6FN1gVyd20DVE8n5WNjcrBj11DV0TL7JTSwasyAFh2b_7qRU/exec', { // Substitua pela URL do Web App
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -409,19 +427,19 @@
                 const result = await response.json();
 
                 if (result.result === 'success') {
-                    // Exibe o feedback no formulário
+                    // Exibir feedback
                     let feedback = '';
-                    feedbacks.forEach((fb, index) => {
-                        feedback += `<p><strong>Questão ${index + 1}:</strong> ${fb}</p>`;
-                    });
+                    for (let i = 1; i <= 10; i++) {
+                        feedback += `<p><strong>Questão ${i}:</strong> ${result.feedback[i] ? result.feedback[i].feedback : 'Sem feedback.'}</p>`;
+                    }
 
                     document.getElementById('feedback-content').innerHTML = feedback;
                     document.getElementById('feedback-container').style.display = 'block';
 
-                    // Opcional: Limpar o formulário após o envio
+                    // Limpar formulário
                     document.getElementById('formulario').reset();
-                    // Resetar a seta personalizada do select de nomes
                     document.getElementById('nome').selectedIndex = 0;
+                    document.getElementById('serie').selectedIndex = 0;
                 } else {
                     alert('Erro ao enviar os dados: ' + result.error);
                 }
